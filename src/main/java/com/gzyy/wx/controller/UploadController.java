@@ -8,7 +8,9 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @Author @DT人 【jky1988@qq.com】
@@ -25,15 +27,15 @@ public class UploadController {
     /**
      *GET请求
      * 上传页面，也将显示已经存在的文件
-     * @param map
      * @return
      */
     @GetMapping(value = "wx/index")
-    public File[] index(Map map) {
+    public List index() {
         // 获取已存在文件
         File[] files = new File(uploadPath).listFiles();
-        System.out.println("======"+ files);
-        return files;
+        List<String> fileNames = Stream.of(files).map(File::getName).collect(Collectors.toList());
+        System.out.println("======"+ fileNames);
+        return fileNames;
     }
 
 

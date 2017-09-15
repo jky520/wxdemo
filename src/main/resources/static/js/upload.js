@@ -5,7 +5,7 @@ var vm = new Vue({
     el: '#app',
     data: {
         message: 'Hello Vue!',
-        files:[]
+        fileNames:[]
     },
     mounted: function () {
         this.$nextTick(function () {
@@ -22,7 +22,7 @@ var vm = new Vue({
             // 下面是vue-resource插件的使用
             this.$http.get("/wx/index").then(function (res) {
                 // console.log(res.data)
-                vm.files = res.data;
+                vm.fileNames = res.data;
             },function (res) {
                 console.log(res.data)
             })

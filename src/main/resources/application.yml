@@ -18,11 +18,13 @@ spring:
         max-file-size: 100MB
         max-request-size: 100MB
         enabled: true
-    # 指定静态资源的路径
+    #mvc:
+      #static-path-pattern: /**  #表示所有的访问都经过静态资源路径,不加也是可以的
+    # 指定静态资源的路径, file:${web.upload-path}配置图片的虚拟目录
     resources:
-        static-locations: classpath:/static/,classpath:/views/
+        static-locations: classpath:/static/,classpath:/views/ #,file:${web.upload-path}
 
 
 web:
-    upload-path: E:\weixin\upload
+    upload-path: C:\weixin\upload\
 

@@ -16,8 +16,9 @@
     <!--<p th:each="file : ${files}">
         <img th:src="${file.name}" style="height:80px;"/>，文件名称：<span th:text="${file.name}"></span>
     </p>-->
-    <p v-for="file in files">
-        文件名称：<span>{{file}}</span>
+    <p v-for="fileName in fileNames">
+        <!--<img :src="fileName" style="height:80px;"/>-->
+        <img :src="'/images/'+fileName" style="height:80px;"/>，文件名称：<span>{{fileName}}</span>
     </p>
 </div>
 <script src="js/upload.js"></script>
